@@ -63,7 +63,7 @@ Once you run the installation procedure no further configuration is needed.
         - Node.js 12.2.0-alpine (for the frontend)
 2. Once all containers are up and running you need to import a test set of players into the empty MongoDB database:
     - From command line inside the same root folder run the `./importPlayers.sh` shell script. It will send the test `rushing.json` file to the backend.
-3. The frontend application could be access at `http://localhost:8080`.
+3. The frontend application could be accessed at `http://localhost:8080`.
 
 ## Remarks
 - The backend is listening on port 3000.
