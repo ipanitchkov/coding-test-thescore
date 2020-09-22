@@ -1,0 +1,48 @@
+version: '3.7'
+services:
+  db:
+    container_name: db
+    image: mongo:4.0
+    restart: always
+    ports:
+      - 27017:27017
+    networks:
+      - players-network
+
+  backend:
+    container_name: backend 
+    build:
+      context: ./backend
+    depends_on:
+      - db  
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/dist
+    environment:  
+      - SERVER_PORT=3000
+      - DATABASE_URL=mongodb://db:27017/players
+    ports:
+      - 3000:3000
+    networks:
+      - players-network
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - 8080:8080
+    environment:
+      - VUE_APP_BACKEND_URL=http://localhost:3000
+    networks:
+      - players-network
+
+networks:
+  players-network:
+    driver: bridge
