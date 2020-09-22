@@ -54,7 +54,7 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
-The project is using MongoDB, Node.js, Nest.js (backend), Vue.js (frontend), Docker and Docker compose.
+The project is using MongoDB, Node.js, Nest.js (backend, TypeScript), Vue.js (frontend), Docker and Docker compose.
 Once you run the installation procedure no further configuration is needed.
 1. From command line under the root folder run `docker-compose up -d` in order to launch the installation procedure. 
     - The following images will be downloaded and instantiated:
